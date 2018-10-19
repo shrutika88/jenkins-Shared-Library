@@ -1,7 +1,7 @@
 /**
 * Hello world step.
 */
-def call() {   
+def call(String a) {   
    echo "before cmd"
    cd "$WORKSPACE"
    echo "after cmd"
