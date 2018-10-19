@@ -1,3 +1,3 @@
-def call(String repo, String branchname , String credID) {
-    checkout([$class: 'GitSCM', branches: [[name: '*/$branchname']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '$credID', url: '$repo']]])
+def call(String repo) {
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git_creds', url: '$repo']]])
 }
