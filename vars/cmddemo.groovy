@@ -1,7 +1,8 @@
-def call (String cmd, String logFilePath) {
-  timestamps {
-    cmdOutput = sh (script:"${cmd}", returnStdout:true).trim()   
-  }  
-  echo cmdOutput   
-  writeFile file: "${logFilePath}", text: "${cmdOutput}"
+def call (String cmdToRun) {
+  def sw = new StopWatch()      
+    def proc = "$cmdToRun".execute()      
+    sw.start()      
+    proc.waitFor()      
+    sw.stop()      
+    println("The process took ${(sw.getTime()/1000).toString()} seconds.\n")
 }
