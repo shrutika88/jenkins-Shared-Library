@@ -3,6 +3,6 @@
 */
 def call(String a) {   
    echo "before cmd"
-   cd "$WORKSPACE"
+   sh "cd $WORKSPACE"
    echo "after cmd"
 }
