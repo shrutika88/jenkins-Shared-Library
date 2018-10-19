@@ -1,10 +1,9 @@
-import org.apache.commons.lang.time.StopWatch
+def call(body) {
+    // evaluate the body block, and collect configuration into the object
+    def config = [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = config
+    body()
 
-def call (String cmdToRun) {
-  def sw = new StopWatch()      
-    def proc = "$cmdToRun".execute()      
-    sw.start()      
-    proc.waitFor()      
-    sw.stop()      
-    println("The process took ${(sw.getTime()/1000).toString()} seconds.\n")
+    sh "git clone https://github.com/shrutika88/final_demo.git"
 }
