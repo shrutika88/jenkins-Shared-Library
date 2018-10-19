@@ -1,7 +1,7 @@
 /**
 * Hello world step.
 */
-def call (String cmd, String logFilePath) {
+def call (String cmd) {
    timestamps {
       cmdOutput = sh (script:"${cmd}", returnStdout:true).trim()   
 	}  
