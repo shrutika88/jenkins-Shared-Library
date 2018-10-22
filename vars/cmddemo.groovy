@@ -1,3 +1,3 @@
-def call(String repo, String brnach) {
-    checkout([$class: 'GitSCM', branches: [[name: '*/"$brnach"']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git_creds', url: "$repo"]]])
+def call() {
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git_creds', url: 'https://github.com/shrutika88/OriginalRepo.git']]])
 }
